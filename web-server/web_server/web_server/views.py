@@ -1,7 +1,11 @@
 from django.http import JsonResponse
+import socket
 import requests
 import geocoder
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 API_KEY = os.getenv("API_KEY")
@@ -17,6 +21,6 @@ def hello(request):
         "client_ip": ip["ip"],
         "location": location,
         "greeting": f"Hello, {visitor_name}!, the temperature is {temperature} degrees Celcius in {location}",
-    }    
+    }
 
     return JsonResponse(response)
