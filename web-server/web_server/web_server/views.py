@@ -2,12 +2,13 @@ from django.http import JsonResponse
 import requests
 import geocoder
 import environ
+import os
 
 env = environ.Env()
 environ.Env.read_env()
 
 
-API_KEY = env("API_KEY")
+API_KEY = os.getenv("API_KEY")
 
 def hello(request):
     ip = geocoder.ip("me").json
