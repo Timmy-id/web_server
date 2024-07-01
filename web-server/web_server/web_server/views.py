@@ -1,11 +1,7 @@
 from django.http import JsonResponse
 import requests
 import geocoder
-import environ
 import os
-
-env = environ.Env()
-environ.Env.read_env()
 
 
 API_KEY = os.getenv("API_KEY")
